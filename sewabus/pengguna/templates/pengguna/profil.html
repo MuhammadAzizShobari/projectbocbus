@@ -1,74 +1,102 @@
-<!DOCTYPE html>
+{% extends 'basesatu.html' %} {% load static %} {% block content %}
 
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<body class="">
 
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Profil</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
-
-
-
-
-</head>
-
-<body>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
-
-    <div class="container emp-profile">
-        <form method="post">
+    <div class="content">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="profile-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="" />
-                        <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="file" />
+                    <div class="col-md-8">
+                        <div class="card">
+                                    <div class="card-header card-header-primary">
+                                        <h4 class="card-title">EDIT PROFIL ANDA</h4>
+                                    </div>
+                        <div class="card-body">
+
+                    <div class="container emp-profile">
+          <form method="post">
+                            
+           <div class="card-body">
+             <div class="table-responsive">
+                <table class="table table-hover">
+                                <tr>
+                                    <td>Nama Perusahaan</td> <td> PT. Uji Coba</td>
+                                </tr>
+                                <tr>
+                                    <td>Tanggal Berdiri</td> <td> 28 Juni 1999 </td>
+                                </tr>
+                                <tr>
+                                     <td>Nomer Hp</td>  <td>089648945</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>   <td> olele@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td>Alamat Lengkap</td> <td>Jalan kaliurang sleman yogyakarta</td>
+                                </tr>
+                                    <td>Bio</td>  <td>selamat pagi</td>
+                                </tr>
+                                <body>
+                                    {% for d in data %}
+                                    <tr>
+                                        <td>{{d.nama_perusahaan}}</td>
+                                        <td>{{d.tanggal_berdiri}}</td>
+                                        <td>{{d.no_hp}}</td>
+                                        <td>{{d.email}}</td>
+                                        <td>{{d.alamat_lengkap}}</td>
+                                        <td>{{d.bio}}</td>
+
+                                      <div class="col-md-4">
+                                           <img src="{{ p.image.url }}" alt="Image Not Found" width="300px">
+                                      </div>
+
+                                    </tr>
+                                </body>
+                                
+                                 <a href="/pengguna" class="btn btn-danger" class="card-link">Back</a>
+
+                                {% endfor %}
+                            </table>
                         </div>
                     </div>
                 </div>
-
-
-
-                <div class="col-md-6">
-                    <div class="profile-head">
-                     <h2 class="text-center">Profil PO BUS</h2>
-                         
-                        <h5>
-                             PO HARYANTO
-                        </h5>
-                        <h6>
-                           
-                        </h6>
-                        
-
-
-
-                            </ul>
-
-                        </ul>
-                    </div>
-                </div>
-
             </div>
-            <div class="row">
-
-        </form>
         </div>
 
 
-        <script src="" async defer></script>
+
+
+
+             
+
+
+
+                
+
+
+
+
+
+                
+    
+              
+
+        
+     
+
+
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+         </div>
+      </div>
+      </div>
+    </div>
 </body>
 
-</html>
+{% endblock %}
+
+
+
+

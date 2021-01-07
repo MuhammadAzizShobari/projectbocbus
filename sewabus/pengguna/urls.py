@@ -14,5 +14,6 @@ urlpatterns = [
     path('<id>/hapus',views.hapus, name='hapus'),
     path('<id>/edit',views.edit, name='edit'),
     path('profil/', views.profil, name='profil'),
+    path('<id>/delete', views.delete),
 
 ]

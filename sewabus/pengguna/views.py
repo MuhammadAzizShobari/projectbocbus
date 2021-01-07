@@ -7,7 +7,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import BusForm
 from .models import DataBus, Images
 from django.forms import modelformset_factory
-
+from sewa.models import Sewa
+from .models import Profil
 
 # Create your views here.
 @login_required(login_url=settings.LOGIN_URL)
@@ -20,11 +21,13 @@ def index (request):
     return render(request,'pengguna/index.html',data)  
     
 def detail(request, id):
-    tampil = models.DataBus.objects.filter(pk=id)
-    image = models.Images.objects.all()
+    tampil = models.DataBus.objects.filter(pk=id).first()
+    image = tampil.images.all()
+    timage = models.Images.objects.filter(id=9).first()
     data = {
         'data':tampil,
         'image' : image,
+        'timg' : timage,
     }   
     return render(request,'pengguna/detail.html',data) 
 
@@ -55,19 +58,24 @@ def user(request):
     #     'form': form,
     #     'data': tasks,
     # })
+    # idgb = DataBus.objects.filter(t_id=id)
     ImageFormSet = modelformset_factory(Images, fields = ('image',), extra=4)
     if request.method == 'POST':
         formx = BusForm(request.POST)
+        print(request.POST)
         formset = ImageFormSet(request.POST or None, request.FILES or None)
         if formx.is_valid() and formset.is_valid():
             post = formx.save(commit=False)
             post.po_id = request.user
+            # post.tanggal= request.POST.get('tanggal')
             post.save()
+
 
             for form in formset:
                 try:
                     # image = form['image']
                     photo = Images(post=post, image=form.cleaned_data['image'])
+                    # photo.t_id = Databus.id
                     photo.save()
                     
                 except Exception as e:
@@ -84,6 +92,7 @@ def user(request):
     return render(request, 'pengguna/user.html', context)
 
 def profil (request):
+    
     return render(request, 'pengguna/profil.html')
 
 
@@ -93,8 +102,11 @@ def hapus(request, id):
     return redirect('index')
 
 def tabel (request):
-   
-    return render(request, 'pengguna/tabel.html')
+    tampil = Sewa.objects.all()
+    data = {
+        'data':tampil,
+    }   
+    return render(request,'pengguna/tabel.html',data)  
 
 def icon (request):
    
@@ -104,3 +116,8 @@ def icon (request):
 def typo (request):
    
     return render(request, 'pengguna/typo.html')
+
+def delete(request, id):
+    konteks = {}
+    tampil = models.Sewa.objects.filter(pk=id).delete()
+    return redirect('table')

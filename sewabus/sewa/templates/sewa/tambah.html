@@ -1,190 +1,229 @@
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en-us" >
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
-	<title>Form Pemesanan</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-	<style> 
+<title>pemesanan</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
 
-	</style>
+
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script type="text/javascript" src="/static/admin/js/calendar.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+<script type="text/javascript" src="/static/admin/js/core.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="/static/admin/js/actions.js"></script>
+<script type="text/javascript" src="/static/admin/js/urlify.js"></script>
+<script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+    
+
+<meta name="robots" content="NONE,NOARCHIVE">
 </head>
-<body>
-	<div class="signup-form">
-		<h2 class="text-center">FORMULIR
-			PEMESANAN SEWA BUS</h2>
-		<hr>
-		<div class="container">
-			<form method="POST">
-                {% csrf_token %}
-				
-				<p class="text-center">Pilih tanggal Sewa</p>
 
 
-		<div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-      <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
-      <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-      </div>
-    </div>								
-				<p class="text-center">Detail Pemesanan</p>
-
-
-
-				<div class="form-group">
-					<input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" required="required">
-				</div>
-				
-				<div class="form-group">
-					<input type="text" class="form-control" name="no_hp" placeholder="No HandPone" required="required">
-				</div>
-				<div class="form-group">
-					<input type="text" class="form-control" name="email" placeholder="Email anda" required="required">
-				</div>
-
-               <li class="list-group-item">Jumlah Partisipan/Seat : </li>
-
-				<p class="text-center">Detail Sewa</p>
-
-				<div class="form-group">
-					<input type="text" class="form-control" name="zona_perjalanan" placeholder="Zona Perjalanan" required="required">
-				</div>
-				<div class="form-group">
-					<input type="text" class="form-control" name="lokasi_jemput" placeholder="Lokasi Jemput" required="required">
-				</div>
-				  <div class="col-md-6 rt-mb-30">
-
-                                <label for="mbl-name">Waktu Jemput</label>
-
-                                <br>
-
-                                <select id="mbl-name" name="time">
-
-                                    <option value="00:00">00:00</option>
-
-                                    <option value="00:30">00:30</option>
-
-                                    <option value="01:00">01:00</option>
-
-                                    <option value="01:30">01:30</option>
-
-                                    <option value="02:00">02:00</option>
-
-                                    <option value="02:30">02:30</option>
-
-                                    <option value="03:00">03:00</option>
-
-                                    <option value="03:30">03:30</option>
-
-                                    <option value="04:00">04:00</option>
-
-                                    <option value="04:30">04:30</option>
-
-                                    <option value="05:00">05:00</option>
-
-                                    <option value="05:30">05:30</option>
-
-                                    <option value="06:00">06:00</option>
-
-                                    <option value="06:30">06:30</option>
-
-                                    <option value="07:00">07:00</option>
-
-                                    <option value="07:30">07:30</option>
-
-                                    <option value="08:00">08:00</option>
-
-                                    <option value="08:30">08:30</option>
-
-                                    <option value="09:00">09:00</option>
-
-                                    <option value="09:30">09:30</option>
-
-                                    <option value="10:00">10:00</option>
-
-                                    <option value="10:30">10:30</option>
-
-                                    <option value="11:00">11:00</option>
-
-                                    <option value="11:30">11:30</option>
-
-                                    <option value="12:00">12:00</option>
-
-                                    <option value="12:30">12:30</option>
-
-                                    <option value="13:00">13:00</option>
-
-                                    <option value="13:30">13:30</option>
-
-                                    <option value="14:00">14:00</option>
-
-                                    <option value="14:30">14:30</option>
-
-                                    <option value="15:00">15:00</option>
-
-                                    <option value="15:30">15:30</option>
-
-                                    <option value="16:00">16:00</option>
-
-                                    <option value="16:30">16:30</option>
-
-                                    <option value="17:00">17:00</option>
-
-                                    <option value="17:30">17:30</option>
-
-                                    <option value="18:00">18:00</option>
-
-                                    <option value="18:30">18:30</option>
-
-                                    <option value="19:00">19:00</option>
-
-                                    <option value="19:30">19:30</option>
-
-                                    <option value="20:00">20:00</option>
-
-                                    <option value="20:30">20:30</option>
-
-                                    <option value="21:00">21:00</option>
-
-                                    <option value="21:30">21:30</option>
-
-                                    <option value="22:00">22:00</option>
-
-                                    <option value="02:30">02:30</option>
-
-                                    <option value="23:00">23:00</option>
-
-                                    <option value="23:59">23:59</option>
-
-                                </select>
-
-
-				
-		<div class="form-group">
-          <button type="submit" value="darah/" class="btn btn-primary btn-block btn-lg">Selesai</button>
-          <a href="/sewa/" class="btn btn-primary btn-block btn-lg" button1 {background-color: #4CAF50;} /* Hijau */ >Kembali</a>
-				</div>
-			</form>
-		</div>
-	</div>
-	<script>
-		$(document).ready(function () {
-			$('#example').DataTable();
-		});
-	</script>
-
-	 <script>
-      $(function () {
-        $("#datetimepicker1").datetimepicker();
-      });
-    </script>
-
-
+<body class=" app-sewa model-sewa change-form"
+  data-admin-utc-offset="0">
+  <div class="breadcrumbs">
+        <a href="/">Home</a>
+        &rsaquo; <a href="/sewa/">Sewa</a>
+        </div>
+        
+
+    <!-- Content -->
+<div id="content" class="colM">
+        
+        
+        <div class="signup-form">
+                <h2 class="text-center">FORMULIR
+                        PEMESANAN SEWA BUS</h2>
+                <p class="text-center">Silahkan Masukan Data Anda</p>
+                <hr>
+                <div class="container">
+                        <form method="POST">
+
+        <!-- <form action="" method="post" id="sewa_form" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="VSFJ1TrVoR0UsDx0uhThm2k842qu9IObT4CEeIIcgKNDBxZn6uw22v5OK5dx2BgS"> -->
+        <div>
+        <fieldset class="module aligned ">
+              {{ form.as_p }}
+        
+        
+                <div class="form-row field-nama_pemesan">
+                
+                
+                        <div class="form-group">
+                                <label class="required" for="id_nama_pemesan">Nama pemesan:</label>
+
+                                    <input type="text" name="nama_pemesan" class="vTextField" maxlength="240" required id="id_nama_pemesan">
+                        </div>
+                
+                </div>
+        
+                <div class="form-row field-no_ktp">
+                
+                
+                        <div>
+                        
+                        
+                                <label class="required" for="id_no_ktp">No ktp:</label>
+
+                                    <input type="text" name="no_ktp" class="vTextField" maxlength="50" required id="id_no_ktp">
+
+                        
+                        
+                        </div>
+                
+                </div>
+        
+                <div class="form-row field-no_hp">
+                
+                
+                        <div>
+                        
+                        
+                                <label class="required" for="id_no_hp">No hp:</label>
+
+                                    <input type="text" name="no_hp" class="vTextField" maxlength="50" required id="id_no_hp">
+
+                        
+                        
+                        </div>
+                
+                </div>
+        
+                <div class="form-row field-email">
+                
+                
+                        <div>
+                        
+                        
+                                <label class="required" for="id_email">Email:</label>
+
+                                    <input type="email" name="email" class="vTextField" maxlength="254" required id="id_email">
+
+                        
+                        
+                        </div>
+                
+                </div>
+        
+                <div class="form-row field-tanggal_mulai">
+                
+                
+                        <div>
+                        
+                        
+                                <label class="required" for="id_tanggal_mulai">Tanggal mulai:</label>
+
+                                    <input type="text" name="tanggal_mulai" class="vDateField" size="10" required id="id_tanggal_mulai">
+
+                        
+                        
+                        </div>
+                
+                </div>
+        
+                <div class="form-row field-tanggal_selesai">
+                
+                
+                        <div>
+                        
+                        
+                                <label class="required" for="id_tanggal_selesai">Tanggal selesai:</label>
+
+                                    <input type="text" name="tanggal_selesai" class="vDateField" size="10" required id="id_tanggal_selesai">
+
+                        
+                        
+                        </div>
+                
+                </div>
+                <div class="form-row field-tujuan">
+                
+                
+                        <div>
+                                <label class="required" for="id_nama_pemesan">Tujuan Perjalanan:</label>
+
+                                    <input type="text" name="tujuan" class="vTextField" maxlength="240" required id="id_tujuan">
+                        </div>
+                
+                </div>
+                <div class="form-row field-waktu">
+                
+                
+                        <div>
+                                <label class="required" for="id_nama_pemesan">Waktu Jemput:</label>
+
+                                    <input type="text" name="waktu" class="vTextField" maxlength="240" required id="id_waktu">
+                        </div>
+                
+                </div>
+                <div class="form-row field-sewa">
+                
+                
+                        <div>
+                                <label class="required" for="id_nama_pemesan">Waktu Sewa:</label>
+
+                                    <input type="text" name="sewa" class="vTextField" maxlength="240" required id="id_sewa">
+                        </div>
+                
+                </div>
+        
+                <div class="form-row field-titik_penjemputan">
+                
+                
+                <div>
+                        <label class="required" for="id_titik_penjemputan">Titik penjemputan:</label>
+                        <textarea name="titik_penjemputan" cols="40" rows="10" class="vLargeTextField" maxlength="254" required id="id_titik_penjemputan"> </textarea>
+
+                </div>
+                
+                </div>
+        
+        </fieldset>
+        <div class="submit-row">
+
+        <input type="submit" value="Selesai" class="default" name="_selesai">
+
+
+        </div>
+        {% csrf_token %}
+
+
+        <script type="text/javascript"
+                id="django-admin-form-add-constants"
+                src="/static/admin/js/change_form.js"
+                    data-model-name="sewa"
+                >
+        </script>
+
+
+
+
+        <script type="text/javascript"
+                id="django-admin-prepopulated-fields-constants"
+                src="/static/admin/js/prepopulate_init.js"
+                
+                
+                
+                
+                
+        data-prepopulated-fields="[]">
+</script>
+</div>
+</form></div>
+        <br class="clear">
+    </div>
+    <!-- END Content -->
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
 </body>
-
 </html>
